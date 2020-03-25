@@ -1,6 +1,7 @@
 class App {
   constructor(input) {
     this.input = input;
+    this.fortuneData = null;
     this.handleFortuneSuccess = this.handleFortuneSuccess.bind(this);
     this.getHeroSuccess = this.getHeroSuccess.bind(this);
     this.getFortune = this.getFortune.bind(this);
@@ -17,6 +18,7 @@ class App {
     });
   }
   handleFortuneSuccess(data) {
+    this.fortuneData = data;
     this.showFortune(data);
   }
   getHero() {
@@ -28,6 +30,8 @@ class App {
   }
   getHeroSuccess(data) {
     console.log(data)
+    var contentSection = new Content(this.fortuneData, domElement, data);
+    contentSection.render(this.fortuneData, data);
   }
   showFortune(data) {
     console.log(data);
