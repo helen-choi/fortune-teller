@@ -30,9 +30,10 @@ class App {
     console.error(error);
   }
   getHero() {
+    var randomNum = Math.floor(Math.random() * 731) + 1;
     $.ajax({
       method: "GET",
-      url: "https://cors-anywhere.herokuapp.com/" + "https://superheroapi.com/api/10206439610825727/307",
+      url: "https://cors-anywhere.herokuapp.com/" + "https://superheroapi.com/api/10206439610825727/" + randomNum,
       success: this.getHeroSuccess,
       error: this.getHeroError
     });
@@ -44,7 +45,7 @@ class App {
     console.error(error);
   }
   showHero(data) {
-    // console.log(data);
+    console.log(data);
     var divRight = document.createElement('div');
     var heroName = document.createElement('h3');
     var intelligence = document.createElement('p');
