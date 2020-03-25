@@ -1,11 +1,15 @@
 class App {
-  constructor(input, zodiac) {
+  constructor(input, fortune, zodiac) {
     this.input = input;
+    this.fortune = fortune;
     this.zodiac = zodiac;
+    this.handleFortuneSuccess = this.handleFortuneSuccess.bind(this);
+    this.getHeroSuccess = this.getHeroSuccess.bind(this);
   }
   start() {
     this.getFortune();
     this.getHero();
+    this.input.handleSubmit();
   }
   getFortune() {
     $.ajax({
@@ -15,7 +19,7 @@ class App {
     });
   }
   handleFortuneSuccess(data) {
-    console.log(data.description);
+    // console.log(data);
   }
   getHero() {
     $.ajax({
@@ -25,6 +29,6 @@ class App {
     });
   }
   getHeroSuccess(data) {
-    console.log(data.name)
+    console.log(data)
   }
 }
