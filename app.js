@@ -1,5 +1,6 @@
 class App {
-  constructor(zodiac) {
+  constructor(input, zodiac) {
+    this.input = input;
     this.zodiac = zodiac;
   }
   start() {

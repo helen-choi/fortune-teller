@@ -2,13 +2,19 @@
   font-family: 'Open Sans', sans-serif;
 }
 body {
+  margin: 0;
+}
+#form {
+  height:1000px;
   background-color: #DBEDE6;
+  background: url('./images/bg.jpg') repeat;
 }
 h1 {
   font-size: 7em;
   color:white;
   font-weight: 700;
   text-align: center;
+  margin: 0;
 }
 form {
   text-align: center;
@@ -29,4 +35,13 @@ form button {
   padding: 10px 20px;
   border-radius: 50px;
   margin-left: 20px;
+}
+#fortune {
+  background-color: #E9D8E0;
+}
+h2 {
+  color:white;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
 }
