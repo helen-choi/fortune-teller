@@ -4,11 +4,13 @@ class Input {
     this.form = form;
     this.zodiac = null;
     this.getFortune = null;
+    this.getHero = null;
     this.handleSubmit = this.handleSubmit.bind(this)
     this.form.addEventListener('submit', this.handleSubmit);
   }
-  onSubmit(getFortune) {
+  onSubmit(getFortune, getHero) {
     this.getFortune = getFortune;
+    this.getHero = getHero;
   }
   handleSubmit(event) {
     event.preventDefault();
@@ -41,6 +43,7 @@ class Input {
         this.zodiac = 'capricorn';
       }
     this.getFortune(this.zodiac);
+    this.getHero();
     // console.log(this.zodiac)
     }
   }
