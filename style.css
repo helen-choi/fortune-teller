@@ -1,0 +1,32 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  background-color: #DBEDE6;
+}
+h1 {
+  font-size: 7em;
+  color:white;
+  font-weight: 700;
+  text-align: center;
+}
+form {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form input {
+  font-size: 30px;
+  border-radius: 10px;
+  color:#576071;
+}
+form button {
+  background-color: #51a9ab;
+  color:white;
+  font-weight: 400;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-left: 20px;
+}
