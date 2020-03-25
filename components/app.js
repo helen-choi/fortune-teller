@@ -30,6 +30,6 @@ class App {
     console.log(data)
   }
   showFortune(data) {
-    console.log(data);
+    console.log(data.description);
   }
 }
