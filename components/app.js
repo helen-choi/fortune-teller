@@ -1,25 +1,23 @@
 class App {
-  constructor(input, fortune, zodiac) {
+  constructor(input) {
     this.input = input;
-    this.fortune = fortune;
-    this.zodiac = zodiac;
     this.handleFortuneSuccess = this.handleFortuneSuccess.bind(this);
     this.getHeroSuccess = this.getHeroSuccess.bind(this);
+    this.getFortune = this.getFortune.bind(this);
   }
   start() {
-    this.getFortune();
     this.getHero();
-    this.input.handleSubmit();
+    this.input.onSubmit(this.getFortune)
   }
-  getFortune() {
+  getFortune(zodiac) {
     $.ajax({
       type: 'POST',
-      url: 'https://aztro.sameerkumar.website?sign=' + this.zodiac + '&day=today',
+      url: 'https://aztro.sameerkumar.website?sign=' + zodiac +'&day=today',
       success: this.handleFortuneSuccess
     });
   }
   handleFortuneSuccess(data) {
-    // console.log(data);
+    this.showFortune(data);
   }
   getHero() {
     $.ajax({
@@ -30,5 +28,8 @@ class App {
   }
   getHeroSuccess(data) {
     console.log(data)
+  }
+  showFortune(data) {
+    console.log(data);
   }
 }

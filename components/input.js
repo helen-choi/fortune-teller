@@ -1,40 +1,46 @@
 class Input {
-  constructor(bdayElement, form, zodiac) {
+  constructor(bdayElement, form) {
     this.bdayElement = bdayElement;
     this.form = form;
-    this.zodiac = zodiac;
+    this.zodiac = null;
+    this.getFortune = null;
     this.handleSubmit = this.handleSubmit.bind(this)
     this.form.addEventListener('submit', this.handleSubmit);
+  }
+  onSubmit(getFortune) {
+    this.getFortune = getFortune;
   }
   handleSubmit(event) {
     event.preventDefault();
     this.zodiac = '';
     var date = this.bdayElement.value.split('-');
-      if (date[1] === '03' && date[2] >= '21' || date[1] === '04' && date[2] <= '19') {
+    var dayNumber = parseInt(date[2]);
+      if (date[1] === '03' && dayNumber >= '21' || date[1] === '04' && dayNumber <= '19') {
         this.zodiac = 'aries';
-      } else if (date[1] === '04' && date[2] >= '20' || date[1] === '05' && date[2] <= '20') {
+      } else if (date[1] === '04' && dayNumber >= '20' || date[1] === '05' && dayNumber <= '20') {
         this.zodiac = 'taurus';
-      } else if (date[1] === '05' && date[2] >= '21' || date[1] === '06' && date[2] <= '20') {
+      } else if (date[1] === '05' && dayNumber >= '21' || date[1] === '06' && dayNumber <= '20') {
         this.zodiac = 'gemini';
-      } else if (date[1] === '06' && date[2] >= '21' || date[1] === '07' && date[2] <= '22') {
+      } else if (date[1] === '06' && dayNumber >= '21' || date[1] === '07' && dayNumber <= '22') {
         this.zodiac = 'cancer';
-      } else if (date[1] === '07' && date[2] >= '23' || date[1] === '08' && date[2] <= '22') {
+      } else if (date[1] === '07' && dayNumber >= '23' || date[1] === '08' && dayNumber <= '22') {
         this.zodiac = 'leo';
-      } else if (date[1] === '08' && date[2] >= '23' || date[1] === '09' && date[2] <= '22') {
+      } else if (date[1] === '08' && dayNumber >= '23' || date[1] === '09' && dayNumber <= '22') {
         this.zodiac = 'virgo';
-      } else if (date[1] === '09' && date[2] >= '23' || date[1] === '10' && date[2] <= '22') {
+      } else if (date[1] === '09' && dayNumber >= '23' || date[1] === '10' && dayNumber <= '22') {
         this.zodiac = 'libra';
-      } else if (date[1] === '10' && date[2] >= '23' || date[1] === '11' && date[2] <= '21') {
+      } else if (date[1] === '10' && dayNumber >= '23' || date[1] === '11' && dayNumber <= '21') {
         this.zodiac = 'scorpio';
-      }else if (date[1] === '11' && date[2] >= '22' || date[1] === '12' && date[2] <= '21') {
+      }else if (date[1] === '11' && dayNumber >= '22' || date[1] === '12' && dayNumber <= '21') {
         this.zodiac = 'saggitarius';
-      } else if (date[1] === '12' && date[2] >= '22' || date[1] === '01' && date[2] <= '19') {
+      } else if (date[1] === '12' && dayNumber >= '22' || date[1] === '01' && dayNumber <= '19') {
         this.zodiac = 'capricorn';
-      } else if (date[1] === '01' && date[2] >= '20' || date[1] === '02' && date[2] <= '18') {
+      } else if (date[1] === '01' && dayNumber >= '20' || date[1] === '02' && dayNumber <= '18') {
         this.zodiac = 'aquarius';
-      } else if (date[1] === '02' && date[2] >= '19' || date[1] === '03' && date[2] <= '20') {
+      } else if (date[1] === '02' && dayNumber >= '19' || date[1] === '03' && dayNumber <= '20') {
         this.zodiac = 'capricorn';
       }
-    // console.log(this.zodiac);
+    this.getFortune(this.zodiac);
+    // console.log(this.zodiac)
     }
   }
