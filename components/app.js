@@ -20,7 +20,7 @@ class App {
   start() {
     this.fortune = document.querySelector('.fortune');
     this.fortune.classList.add('hidden');
-    this.input.onSubmit(this.getFortune,this.getHero,this.smoothScroll);
+    this.input.onSubmit(this.getFortune,this.getHero);
   }
   getFortune(zodiac) {
     $.ajax({
@@ -48,7 +48,6 @@ class App {
   }
   getHeroSuccess(data) {
     this.showHero(data);
-    // console.log(data);
   }
   getHeroError(error) {
     console.error(error);
@@ -116,9 +115,12 @@ class App {
     this.divRight.appendChild(type);
     this.divRight.appendChild(ability);
     this.divRight.appendChild(imgDiv);
+    this.main.appendChild(this.divRight);
 
     var resetBtn = document.getElementById('top');
     resetBtn.addEventListener('click', this.resetFortune);
+
+    this.smoothScroll('fortune-container', 1500);
   }
   smoothScroll(target, duration) {
     this.fortune.classList.remove('hidden');

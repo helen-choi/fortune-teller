@@ -45,7 +45,6 @@ class Input {
       }
     this.getFortune(this.zodiac);
     this.getHero();
-    this.smoothScroll('fortune-container',1500);
     event.target.reset();
     }
   }
