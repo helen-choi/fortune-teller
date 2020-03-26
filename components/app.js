@@ -3,6 +3,9 @@ class App {
     this.input = input;
     this.zodiac = null;
     this.contentElement = contentElement;
+    this.header = null;
+    this.divRight = null;
+    this.main = null;
     this.handleFortuneSuccess = this.handleFortuneSuccess.bind(this);
     this.handleFortuneError = this.handleFortuneError.bind(this);
     this.getHeroSuccess = this.getHeroSuccess.bind(this);
@@ -31,7 +34,7 @@ class App {
     console.error(error);
   }
   getHero() {
-    var randomNum = Math.floor(Math.random() * 151) +1;
+    var randomNum = Math.floor(Math.random() * 151) + 1;
     $.ajax({
       method: "GET",
       url: "https://pokeapi.co/api/v2/pokemon/" + randomNum + "/",
@@ -47,7 +50,8 @@ class App {
     console.error(error);
   }
   showFortune(data) {
-    var header = document.createElement('header');
+    this.header = document.createElement('header');
+    this.main = document.createElement('main');
     var zodiacImage = document.createElement('img');
     var greeting = document.createElement('h2');
     var fortuneElement = document.createElement('p');
@@ -66,20 +70,21 @@ class App {
     color.textContent = 'Color: ' + data.color;
     compatibility.textContent = 'Compatibility: ' + data.compatibility;
 
-    header.appendChild(zodiacImage);
-    header.appendChild(greeting);
-    header.appendChild(fortuneElement);
+    this.header.appendChild(zodiacImage);
+    this.header.appendChild(greeting);
+    this.header.appendChild(fortuneElement);
     divLeft.appendChild(luckyNumber);
     divLeft.appendChild(luckyTime);
     divLeft.appendChild(color);
     divLeft.appendChild(compatibility);
 
-    this.contentElement.appendChild(header);
-    this.contentElement.appendChild(divLeft);
+    this.contentElement.appendChild(this.header);
+    this.main.append(divLeft, this.divRight);
+    this.contentElement.appendChild(this.main);
   }
   showHero(data) {
-    console.log(data);
-    var divRight = document.createElement('div');
+    this.divRight = document.createElement('div');
+    this.main = document.createElement('main');
     var heroName = document.createElement('h3');
     var imgDiv = document.createElement('div');
     var heroImg = document.createElement('img');
@@ -88,7 +93,7 @@ class App {
     var typeText = '';
     var abilityText = '';
 
-    divRight.classList.add('fortune-details', 'right');
+    this.divRight.classList.add('fortune-details', 'right');
     heroName.textContent = 'Lucky Pokemon: ' + data.name + '';
     imgDiv.classList.add('hero-image');
     heroImg.src = data.sprites.front_default;
@@ -102,14 +107,10 @@ class App {
     ability.textContent = 'Ability: ' + abilityText.substring(0, abilityText.length - 2);
 
     imgDiv.appendChild(heroImg);
-    divRight.appendChild(heroName);
-    divRight.appendChild(type);
-    divRight.appendChild(ability);
-    divRight.appendChild(imgDiv);
-
-    setTimeout(function() {
-      this.contentElement.appendChild(divRight);
-    }, 1500);
+    this.divRight.appendChild(heroName);
+    this.divRight.appendChild(type);
+    this.divRight.appendChild(ability);
+    this.divRight.appendChild(imgDiv);
   }
   smoothScroll(target, duration) {
     var targetEl = document.getElementById(target);

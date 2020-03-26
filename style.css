@@ -52,9 +52,11 @@ form button {
 .fortune {
   width: 100%;
   max-width: 1250px;
-  padding: 30px;
   color:#575F71;
   margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 .fortune header {
   flex-basis: 100%;
@@ -85,12 +87,14 @@ form button {
 .fortune .hero-image img {
   width: 140px;
 }
-#fortune-container {
-  width: 70%;
-  margin: 0 auto;
+.fortune main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+#fortune-container {
+  width: 70%;
+  margin: 0 auto;
 }
 h2 {
   color: #575F71;
