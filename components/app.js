@@ -10,9 +10,10 @@ class App {
     this.getFortune = this.getFortune.bind(this);
     this.getHero = this.getHero.bind(this);
     this.showHero = this.showHero.bind(this);
+    this.smoothScroll = this.smoothScroll.bind(this);
   }
   start() {
-    this.input.onSubmit(this.getFortune,this.getHero);
+    this.input.onSubmit(this.getFortune,this.getHero,this.smoothScroll);
   }
   getFortune(zodiac) {
     $.ajax({
@@ -30,7 +31,7 @@ class App {
     console.error(error);
   }
   getHero() {
-    var randomNum = Math.floor(Math.random() * 802) +1;
+    var randomNum = Math.floor(Math.random() * 151) +1;
     $.ajax({
       method: "GET",
       url: "https://pokeapi.co/api/v2/pokemon/" + randomNum + "/",
@@ -88,13 +89,13 @@ class App {
     var abilityText = '';
 
     divRight.classList.add('fortune-details', 'right');
-    heroName.textContent = 'To get you through the day, be like ' + data.name + '!';
+    heroName.textContent = 'Lucky Pokemon: ' + data.name + '';
     imgDiv.classList.add('hero-image');
     heroImg.src = data.sprites.front_default;
     for(var i = 0; i < data.types.length; i++) {
       typeText += data.types[i].type.name + ', ';
     }
-    type.textContent = 'Type: ' + typeText;
+    type.textContent = 'Type: ' + typeText.substring(0, typeText.length - 2);
     for(var j = 0; j < data.abilities.length; j++) {
       abilityText += data.abilities[j].ability.name + ', ';
     }
@@ -108,6 +109,28 @@ class App {
 
     setTimeout(function() {
       this.contentElement.appendChild(divRight);
-    }, 2000);
+    }, 1500);
+  }
+  smoothScroll(target, duration) {
+    var targetEl = document.getElementById(target);
+    var targetPosition = targetEl.getBoundingClientRect().top;
+    var startPosition = window.pageYOffset;
+    var distance = targetPosition - startPosition;
+    var startTime = null;
+
+    function animation(currentTime) {
+      if(startTime === null) startTime = currentTime;
+      var timeElapsed = currentTime - startTime;
+      var run = ease(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0,run);
+      if(timeElapsed < duration) requestAnimationFrame(animation);
+    }
+    function ease(t,b,c,d) {
+      t /= d / 2;
+      if(t < 1) return  c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+    requestAnimationFrame(animation);
   }
 }
