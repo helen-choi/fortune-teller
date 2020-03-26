@@ -2,6 +2,7 @@ class App {
   constructor(input,contentElement) {
     this.input = input;
     this.zodiac = null;
+    this.fortune = null;
     this.contentElement = contentElement;
     this.header = null;
     this.divRight = null;
@@ -16,6 +17,8 @@ class App {
     this.smoothScroll = this.smoothScroll.bind(this);
   }
   start() {
+    this.fortune = document.querySelector('.fortune');
+    this.fortune.classList.add('hidden');
     this.input.onSubmit(this.getFortune,this.getHero,this.smoothScroll);
   }
   getFortune(zodiac) {
@@ -113,6 +116,7 @@ class App {
     this.divRight.appendChild(imgDiv);
   }
   smoothScroll(target, duration) {
+    this.fortune.classList.remove('hidden');
     var targetEl = document.getElementById(target);
     var targetPosition = targetEl.getBoundingClientRect().top;
     var startPosition = window.pageYOffset;
@@ -133,5 +137,8 @@ class App {
       return -c / 2 * (t * (t - 2) - 1) + b;
     }
     requestAnimationFrame(animation);
+  }
+  resetFortune() {
+
   }
 }
