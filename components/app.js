@@ -15,6 +15,7 @@ class App {
     this.getHero = this.getHero.bind(this);
     this.showHero = this.showHero.bind(this);
     this.smoothScroll = this.smoothScroll.bind(this);
+    this.resetFortune = this.resetFortune.bind(this);
   }
   start() {
     this.fortune = document.querySelector('.fortune');
@@ -47,7 +48,7 @@ class App {
   }
   getHeroSuccess(data) {
     this.showHero(data);
-    console.log(data);
+    // console.log(data);
   }
   getHeroError(error) {
     console.error(error);
@@ -114,6 +115,9 @@ class App {
     this.divRight.appendChild(type);
     this.divRight.appendChild(ability);
     this.divRight.appendChild(imgDiv);
+
+    var resetBtn = document.getElementById('top');
+    resetBtn.addEventListener('click', this.resetFortune);
   }
   smoothScroll(target, duration) {
     this.fortune.classList.remove('hidden');
@@ -139,6 +143,6 @@ class App {
     requestAnimationFrame(animation);
   }
   resetFortune() {
-
+    this.smoothScroll('form', 1500);
   }
 }

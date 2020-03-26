@@ -102,6 +102,18 @@ h2 {
   text-align: center;
   margin: 0;
 }
+.fortune #top {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  background-color: #981388;
+  color:white;
+  font-weight: 700;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 10px;
+  border:none;
+}
 .hidden {
   display: none;
 }
