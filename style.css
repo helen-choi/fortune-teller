@@ -5,9 +5,14 @@ body {
   margin: 0;
 }
 #form {
-  height:1000px;
-  background-color: #DBEDE6;
-  background: url('./images/bg.jpg') repeat;
+  height:100vh;
+  background: rgb(173,83,137);
+  background: linear-gradient(317deg, rgba(173,83,137,1) 0%, rgba(252,70,107,1) 0%, rgba(63,94,251,1) 100%);
+  background-image: url('./images/bg.jpg');
+  background-size: cover;
+}
+.form-container {
+  margin: 0 auto;
 }
 h1 {
   font-size: 7em;
@@ -15,6 +20,9 @@ h1 {
   font-weight: 700;
   text-align: center;
   margin: 0;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  text-shadow: 0 0 10px #333333;
 }
 form {
   text-align: center;
@@ -23,33 +31,69 @@ form {
   justify-content: center;
 }
 form input {
-  font-size: 30px;
+  font-size: 35px;
   border-radius: 10px;
-  color:#576071;
+  background-color: rgba(255,255,255,0.4);
+  color:#ffffff;
+  border:none;
+  padding: 10px;
+  text-align: center;
 }
 form button {
-  background-color: #51a9ab;
+  background-color: #981388;
   color:white;
-  font-weight: 400;
-  font-size: 20px;
-  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 25px;
+  padding: 20px;
   border-radius: 50px;
   margin-left: 20px;
+  border:none;
 }
-#fortune {
-  background-color: #E9D8E0;
+.fortune {
+  width: 100%;
+  max-width: 1250px;
   padding: 30px;
+  color:#575F71;
+  margin: 0 auto;
+}
+.fortune header {
+  flex-basis: 100%;
+  text-align: center;
+}
+.fortune header img {
+  width: 200px;
+}
+.fortune header h2 {
+  font-size: 40px;
+  margin-top: 20px;
+}
+.fortune header p {
+  padding: 0 20px;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 30px auto;
+}
+.fortune .fortune-details {
+  flex-basis: 43%;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+}
+.fortune .hero-image {
+  text-align: center;
+}
+.fortune .hero-image img {
+  width: 140px;
+}
+#fortune-container {
+  width: 70%;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-}
-#fortune header {
-  flex-basis: 100%;
-}
-#fortune .fortune-details {
-  flex-basis: 50%;
+  justify-content: space-between;
 }
 h2 {
-  color:white;
+  color: #575F71;
   font-weight: 700;
   text-align: center;
   margin: 0;

@@ -34,7 +34,7 @@ class Input {
       } else if (date[1] === '10' && dayNumber >= '23' || date[1] === '11' && dayNumber <= '21') {
         this.zodiac = 'scorpio';
       }else if (date[1] === '11' && dayNumber >= '22' || date[1] === '12' && dayNumber <= '21') {
-        this.zodiac = 'saggitarius';
+        this.zodiac = 'sagittarius';
       } else if (date[1] === '12' && dayNumber >= '22' || date[1] === '01' && dayNumber <= '19') {
         this.zodiac = 'capricorn';
       } else if (date[1] === '01' && dayNumber >= '20' || date[1] === '02' && dayNumber <= '18') {
