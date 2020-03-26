@@ -54,6 +54,7 @@ class App {
     console.error(error);
   }
   showFortune(data) {
+    this.destroyFortune(this.contentElement);
     this.header = document.createElement('header');
     this.main = document.createElement('main');
     var zodiacImage = document.createElement('img');
@@ -144,5 +145,10 @@ class App {
   }
   resetFortune() {
     this.smoothScroll('form', 1500);
+  }
+  destroyFortune(element) {
+    while(element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
   }
 }
