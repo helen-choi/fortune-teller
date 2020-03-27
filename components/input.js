@@ -41,7 +41,7 @@ class Input {
       } else if (date[1] === '01' && dayNumber >= 20 || date[1] === '02' && dayNumber <= 18) {
         this.zodiac = 'aquarius';
       } else if (date[1] === '02' && dayNumber >= 19 || date[1] === '03' && dayNumber <= 20) {
-        this.zodiac = 'capricorn';
+        this.zodiac = 'pisces';
       }
     this.getFortune(this.zodiac);
     this.getHero();

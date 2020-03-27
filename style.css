@@ -6,8 +6,6 @@ body {
 }
 #form {
   height:100vh;
-  background: rgb(173,83,137);
-  background: linear-gradient(317deg, rgba(173,83,137,1) 0%, rgba(252,70,107,1) 0%, rgba(63,94,251,1) 100%);
   background-image: url('./images/bg.jpg');
   background-size: cover;
 }

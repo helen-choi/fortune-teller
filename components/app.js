@@ -66,7 +66,8 @@ class App {
     var compatibility = document.createElement('p');
 
     zodiacImage.src = './images/' + this.zodiac + '.png';
-    greeting.textContent = 'Hello ' + this.zodiac + '!';
+    var zodiacCapitalize = this.zodiac.charAt(0).toUpperCase() + this.zodiac.slice(1);
+    greeting.textContent = 'Hello ' + zodiacCapitalize + '!';
     fortuneElement.textContent = data.description;
     divLeft.classList.add('fortune-details', 'left');
     luckyNumber.textContent = 'Lucky Number: ' + data.lucky_number;
@@ -96,9 +97,10 @@ class App {
     var ability = document.createElement('p');
     var typeText = '';
     var abilityText = '';
+    var pokemonCapitalize = data.name.charAt(0).toUpperCase() + data.name.slice(1);
 
     this.divRight.classList.add('fortune-details', 'right');
-    heroName.textContent = 'Lucky Pokemon: ' + data.name + '';
+    heroName.textContent = 'Lucky Pokemon: ' + pokemonCapitalize + '';
     imgDiv.classList.add('hero-image');
     heroImg.src = data.sprites.front_default;
     for(var i = 0; i < data.types.length; i++) {
