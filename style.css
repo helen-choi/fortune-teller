@@ -6,7 +6,7 @@ body {
 }
 #form {
   height:100vh;
-  background-image: url('./images/bg.jpg');
+  background: url('./images/bg.jpg') center;
   background-size: cover;
 }
 .form-container {
@@ -114,4 +114,67 @@ h2 {
 }
 .hidden {
   display: none;
+}
+@media only screen and (max-width:1224px) {
+  h1 {
+  font-size: 6em;
+  }
+}
+@media only screen and (max-width:1024px) {
+  h1 {
+    font-size: 5em;
+  }
+  #fortune-container {
+    width: 80%;
+  }
+}
+@media only screen and (max-width:768px) {
+  #form {
+    background: url('./images/bg-vertical.jpg') center;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  h1 {
+    font-size: 60px;
+    padding-top: 0;
+    padding-bottom: 30px;
+  }
+  form {
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+  }
+  form input {
+    flex-basis: 80%;
+    margin-bottom: 30px;
+  }
+  .fortune {
+    height: auto;
+  }
+  .fortune .fortune-details {
+    margin-bottom: 30px;
+    flex-basis: 100%;
+  }
+  #fortune-container {
+    margin-top: 30px;
+  }
+  .fortune header img {
+    width: 150px;
+  }
+}
+@media only screen and (max-width:414px) {
+  h1 {
+    font-size: 40px;
+    padding-bottom: 40px;
+  }
+  form input {
+    font-size: 25px;
+  }
+  form button {
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 30px;
+  }
 }
