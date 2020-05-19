@@ -9,18 +9,18 @@ class App {
     this.main = null;
     this.handleFortuneSuccess = this.handleFortuneSuccess.bind(this);
     this.handleFortuneError = this.handleFortuneError.bind(this);
-    this.getHeroSuccess = this.getHeroSuccess.bind(this);
-    this.getHeroError = this.getHeroError.bind(this);
+    this.getPokemonSuccess = this.getPokemonSuccess.bind(this);
+    this.getPokemonError = this.getPokemonError.bind(this);
     this.getFortune = this.getFortune.bind(this);
-    this.getHero = this.getHero.bind(this);
-    this.showHero = this.showHero.bind(this);
+    this.getPokemon = this.getPokemon.bind(this);
+    this.showPokemon = this.showPokemon.bind(this);
     this.smoothScroll = this.smoothScroll.bind(this);
     this.resetFortune = this.resetFortune.bind(this);
   }
   start() {
     this.fortune = document.querySelector('.fortune');
     this.fortune.classList.add('hidden');
-    this.input.onSubmit(this.getFortune,this.getHero);
+    this.input.onSubmit(this.getFortune,this.getPokemon);
   }
   getFortune(zodiac) {
     $.ajax({
@@ -37,19 +37,19 @@ class App {
   handleFortuneError(error) {
     console.error(error);
   }
-  getHero() {
+  getPokemon() {
     var randomNum = Math.floor(Math.random() * 151) + 1;
     $.ajax({
       method: "GET",
       url: "https://pokeapi.co/api/v2/pokemon/" + randomNum + "/",
-      success: this.getHeroSuccess,
-      error: this.getHeroError
+      success: this.getPokemonSuccess,
+      error: this.getPokemonError
     })
   }
-  getHeroSuccess(data) {
-    this.showHero(data);
+  getPokemonSuccess(data) {
+    this.showPokemon(data);
   }
-  getHeroError(error) {
+  getPokemonError(error) {
     console.error(error);
   }
   showFortune(data) {
@@ -87,12 +87,12 @@ class App {
     this.main.append(divLeft, this.divRight);
     this.contentElement.appendChild(this.main);
   }
-  showHero(data) {
+  showPokemon(data) {
     this.divRight = document.createElement('div');
     this.main = document.createElement('main');
-    var heroName = document.createElement('h3');
+    var pokemonName = document.createElement('h3');
     var imgDiv = document.createElement('div');
-    var heroImg = document.createElement('img');
+    var pokemonImg = document.createElement('img');
     var type = document.createElement('p');
     var ability = document.createElement('p');
     var typeText = '';
@@ -100,9 +100,9 @@ class App {
     var pokemonCapitalize = data.name.charAt(0).toUpperCase() + data.name.slice(1);
 
     this.divRight.classList.add('fortune-details', 'right');
-    heroName.textContent = 'Lucky Pokemon: ' + pokemonCapitalize + '';
-    imgDiv.classList.add('hero-image');
-    heroImg.src = data.sprites.front_default;
+    pokemonName.textContent = 'Lucky Pokemon: ' + pokemonCapitalize + '';
+    imgDiv.classList.add('pokemon-image');
+    pokemonImg.src = data.sprites.front_default;
     for(var i = 0; i < data.types.length; i++) {
       typeText += data.types[i].type.name + ', ';
     }
@@ -112,8 +112,8 @@ class App {
     }
     ability.textContent = 'Ability: ' + abilityText.substring(0, abilityText.length - 2);
 
-    imgDiv.appendChild(heroImg);
-    this.divRight.appendChild(heroName);
+    imgDiv.appendChild(pokemonImg);
+    this.divRight.appendChild(pokemonName);
     this.divRight.appendChild(type);
     this.divRight.appendChild(ability);
     this.divRight.appendChild(imgDiv);
