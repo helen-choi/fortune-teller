@@ -8,6 +8,7 @@ class App {
     this.divRight = null;
     this.main = null;
     this.resetBtn = document.getElementById('top');
+
     this.handleFortuneSuccess = this.handleFortuneSuccess.bind(this);
     this.handleFortuneError = this.handleFortuneError.bind(this);
     this.getPokemonSuccess = this.getPokemonSuccess.bind(this);
@@ -33,6 +34,7 @@ class App {
     this.zodiac = zodiac;
   }
   handleFortuneSuccess(data) {
+    this.fortuneData = data;
     this.showFortune(data);
   }
   handleFortuneError(error) {
@@ -47,6 +49,7 @@ class App {
       error: this.getPokemonError
     })
   }
+
   getPokemonSuccess(data) {
     this.showPokemon(data);
   }
