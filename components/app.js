@@ -7,6 +7,7 @@ class App {
     this.header = null;
     this.divRight = null;
     this.main = null;
+    this.resetBtn = document.getElementById('top');
     this.handleFortuneSuccess = this.handleFortuneSuccess.bind(this);
     this.handleFortuneError = this.handleFortuneError.bind(this);
     this.getPokemonSuccess = this.getPokemonSuccess.bind(this);
@@ -119,8 +120,7 @@ class App {
     this.divRight.appendChild(imgDiv);
     this.main.appendChild(this.divRight);
 
-    var resetBtn = document.getElementById('top');
-    resetBtn.addEventListener('click', this.resetFortune);
+    this.resetBtn.addEventListener('click', this.resetFortune);
 
     this.smoothScroll('fortune-container', 1500);
   }
@@ -131,6 +131,12 @@ class App {
     var startPosition = window.pageYOffset;
     var distance = targetPosition - startPosition;
     var startTime = null;
+
+    if(window.pageYOffset > 300) {
+      this.resetBtn.classList.add('hidden');
+    }else {
+      this.resetBtn.classList.remove('hidden');
+    }
 
     function animation(currentTime) {
       if(startTime === null) startTime = currentTime;
