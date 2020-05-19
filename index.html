@@ -10,43 +10,25 @@
 <body>
   <div class="container">
     <section id="form">
-      <div>
-        <h1>What's your fortune today?</h1>
-        <img src="" alt="">
+      <div class="form-container">
+        <h1>What's your<br>fortune today?</h1>
         <form>
           <input type="date" name="bday" id="bday">
           <button type="submit">Let's find out!</button>
         </form>
       </div>
     </section>
-    <section id="fortune">
-      <header>
-        <h2>Hello <span id="horoscope"></span>!</h2>
-        <p id="daily"></p>
-      </header>
-      <div class="fortune-details left">
-        <p>Lucky number: <span id="lucky-number"></span></p>
-        <p>Lucky time: <span id="lucky-time"></span></p>
-        <p>Your color: <span id="color"></span></p>
-        <p>Compatibility: <span id="compatibility"></span></p>
-      </div>
-      <div class="fortune-details right">
-        <h3>Be a <span id="superhero"></span> today!</h3>
-        <p>Intelligence: <span id="intelligence"></span></p>
-        <p>Strength: <span id="strength"></span></p>
-        <p>Speed: <span id="speed"></span></p>
-        <p>Durability: <span id="durability"></span></p>
-        <p>Power: <span id="power"></span></p>
-        <p>Combat: <span id="combat"></span></p>
+    <section class="fortune">
+      <div id="fortune-container">
 
       </div>
+      <button id="top">TOP</button>
     </section>
   </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="./components/input.js"></script>
-<script src="./components/fortune.js"></script>
 <script src="./components/app.js"></script>
 <script src="main.js"></script>
 </html>
