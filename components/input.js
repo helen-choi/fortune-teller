@@ -8,7 +8,13 @@ class Input {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.form.addEventListener('submit', this.handleSubmit);
   }
-  findZodiac () {
+  onSubmit(getFortune, getPokemon, smoothScroll) {
+    this.getFortune = getFortune;
+    this.getPokemon = getPokemon;
+    this.smoothScroll = smoothScroll;
+  }
+  handleSubmit(event) {
+    event.preventDefault();
     this.zodiac = '';
     var date = this.bdayElement.value.split('-');
     var dayNumber = parseInt(date[2]);
@@ -37,17 +43,8 @@ class Input {
     } else if (date[1] === '02' && dayNumber >= 19 || date[1] === '03' && dayNumber <= 20) {
       this.zodiac = 'pisces';
     }
-  }
-  onSubmit(getFortune, getHero, smoothScroll) {
-    this.getFortune = getFortune;
-    this.getPokemon = getPokemon;
-    this.smoothScroll = smoothScroll;
-  }
-  handleSubmit(event) {
-    event.preventDefault();
-    this.findZodiac();
     this.getFortune(this.zodiac);
     this.getPokemon();
     event.target.reset();
-    }
   }
+}
