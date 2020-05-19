@@ -4,7 +4,7 @@ class Input {
     this.form = form;
     this.zodiac = null;
     this.getFortune = null;
-    this.getHero = null;
+    this.getPokemon = null;
     this.handleSubmit = this.handleSubmit.bind(this)
     this.form.addEventListener('submit', this.handleSubmit);
   }
@@ -40,14 +40,14 @@ class Input {
   }
   onSubmit(getFortune, getHero, smoothScroll) {
     this.getFortune = getFortune;
-    this.getHero = getHero;
+    this.getPokemon = getPokemon;
     this.smoothScroll = smoothScroll;
   }
   handleSubmit(event) {
     event.preventDefault();
     this.findZodiac();
     this.getFortune(this.zodiac);
-    this.getHero();
+    this.getPokemon();
     event.target.reset();
     }
   }
