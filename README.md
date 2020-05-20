@@ -1,6 +1,6 @@
 # Fortune Teller
 
-A front-end JavaScript application that tells the user their daily fortune depending on the user's birthday using the [Astro API](https://aztro.readthedocs.io/en/latest/) and [Pokémon API](https://pokeapi.co/?ref=public-apis) endpoints.
+A front-end JavaScript application that tells the user their daily fortune depending on their birthday using the [Astro API](https://aztro.readthedocs.io/en/latest/) and [Pokémon API](https://pokeapi.co/?ref=public-apis) endpoints.
 
 ## Technologies Used
 
