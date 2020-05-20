@@ -5,6 +5,7 @@ class Input {
     this.zodiac = null;
     this.getFortune = null;
     this.getPokemon = null;
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.form.addEventListener('submit', this.handleSubmit);
   }
