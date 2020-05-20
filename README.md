@@ -23,7 +23,7 @@ Try the application live at https://fortuneteller.helen-choi.com/
 - Users can scroll to top
 
 ## Preview
-
+![App demo](https://github.com/helen-choi/fortune-teller/blob/master/images/fortune.gif "App demo")
 ## Getting Started
 
 1. Clone the repository.
