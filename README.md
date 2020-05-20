@@ -2,7 +2,8 @@
 
 A front-end JavaScript application that tells the user their daily fortune depending on the user's birthday.
 
-### Technologies Used
+## Technologies Used
+
 - JavaScript ES5
 - OOP
 - HTML 5
@@ -10,13 +11,23 @@ A front-end JavaScript application that tells the user their daily fortune depen
 - Flexbox
 - jQuery AJAX
 
-### Live Demo
+## Live Demo
+
 Try the application live at https://fortuneteller.helen-choi.com/
 
-### Features
+## Features
+
 - Users can input their birthday
 - Users can view daily fortune
 - Users can view a Pokémon
 - Users can scroll to top
 
-**NOTE:** Any APIs found through this link not on the approved API list above must be approved by an instructor to be used. In order to be approved, you must be able to provide proof of a successful AJAX call in the browser **WITHOUT** using VSCode's Live Server.
+## Preview
+
+## Getting Started
+
+1. Clone the repository.
+```
+git clone https://github.com/helen-choi/fortune-teller.git
+```
+2. Open the file through a code editor and open default browser from index.html file.
