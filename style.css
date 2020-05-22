@@ -38,6 +38,9 @@ form input {
   padding: 15px;
   text-align: center;
 }
+form input:hover {
+  cursor: pointer;
+}
 form label {
     color:white;
     flex-basis:100%;
@@ -56,6 +59,7 @@ form button {
 form button:hover {
   background-color:white;
   color:#981388;
+  cursor: pointer;
   }
 .fortune {
   width: 100%;
@@ -125,6 +129,7 @@ h2 {
 .fortune #top:hover {
   background-color:white;
   color:#981388;
+  cursor: pointer;
   }
 .hidden {
   display: none;

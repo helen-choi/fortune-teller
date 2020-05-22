@@ -51,7 +51,11 @@ class App {
   }
 
   getPokemonSuccess(data) {
-    this.showPokemon(data);
+    if(!data) {
+      this.getPokemon();
+    }else {
+      this.showPokemon(data);
+    }
   }
   getPokemonError(error) {
     console.error(error);
@@ -131,11 +135,11 @@ class App {
     this.fortune.classList.remove('hidden');
     var targetEl = document.getElementById(target);
     var targetPosition = targetEl.getBoundingClientRect().top;
-    var startPosition = window.pageYOffset;
+    var startPosition = window.scrollY;
     var distance = targetPosition - startPosition;
     var startTime = null;
 
-    if(window.pageYOffset > 300) {
+    if(window.scrollY > 300) {
       this.resetBtn.classList.add('hidden');
     }else {
       this.resetBtn.classList.remove('hidden');
@@ -147,6 +151,7 @@ class App {
       var run = ease(timeElapsed, startPosition, distance, duration);
       window.scrollTo(0,run);
       if(timeElapsed < duration) requestAnimationFrame(animation);
+      console
     }
     function ease(t,b,c,d) {
       t /= d / 2;
