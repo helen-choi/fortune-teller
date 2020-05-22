@@ -2,7 +2,7 @@ class Input {
   constructor(bdayElement, form) {
     this.bdayElement = bdayElement;
     this.form = form;
-    this.zodiac = null;
+    this.zodiac = '';
     this.getFortune = null;
     this.getPokemon = null;
 

@@ -51,7 +51,11 @@ class App {
   }
 
   getPokemonSuccess(data) {
-    this.showPokemon(data);
+    if(!data) {
+      this.getPokemon();
+    }else {
+      this.showPokemon(data);
+    }
   }
   getPokemonError(error) {
     console.error(error);
