@@ -130,7 +130,13 @@ h2 {
   background-color:white;
   color:#981388;
   cursor: pointer;
-  }
+}
+.left {
+  order:-1;
+}
+.right {
+  order:13;
+}
 .hidden {
   display: none;
 }

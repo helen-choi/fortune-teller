@@ -44,8 +44,13 @@ class Input {
     } else if (date[1] === '02' && dayNumber >= 19 || date[1] === '03' && dayNumber <= 20) {
       this.zodiac = 'pisces';
     }
-    this.getFortune(this.zodiac);
-    this.getPokemon();
-    event.target.reset();
+
+    if(!this.zodiac) {
+      return;
+    }else {
+      this.getFortune(this.zodiac);
+      this.getPokemon();
+      event.target.reset();
+    }
   }
 }
