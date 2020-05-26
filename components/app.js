@@ -2,11 +2,10 @@ class App {
   constructor(input,contentElement) {
     this.input = input;
     this.zodiac = null;
-    this.fortune = null;
+    // this.fortune = null;
+    this.pokemon = null;
+    this.main = document.createElement('main');
     this.contentElement = contentElement;
-    this.header = null;
-    this.divRight = null;
-    this.main = null;
     this.resetBtn = document.getElementById('top');
 
     this.handleFortuneSuccess = this.handleFortuneSuccess.bind(this);
@@ -34,7 +33,7 @@ class App {
     this.zodiac = zodiac;
   }
   handleFortuneSuccess(data) {
-    this.fortuneData = data;
+    // this.fortune = data;
     this.showFortune(data);
   }
   handleFortuneError(error) {
@@ -54,6 +53,7 @@ class App {
     if(!data) {
       this.getPokemon();
     }else {
+      this.pokemon = data;
       this.showPokemon(data);
     }
   }
@@ -63,7 +63,6 @@ class App {
   showFortune(data) {
     this.destroyFortune(this.contentElement);
     this.header = document.createElement('header');
-    this.main = document.createElement('main');
     var zodiacImage = document.createElement('img');
     var greeting = document.createElement('h2');
     var fortuneElement = document.createElement('p');
@@ -92,12 +91,11 @@ class App {
     divLeft.appendChild(compatibility);
 
     this.contentElement.appendChild(this.header);
-    this.main.append(divLeft, this.divRight);
+    this.main.append(divLeft);
     this.contentElement.appendChild(this.main);
   }
   showPokemon(data) {
-    this.divRight = document.createElement('div');
-    this.main = document.createElement('main');
+    var divRight = document.createElement('div');
     var pokemonName = document.createElement('h3');
     var imgDiv = document.createElement('div');
     var pokemonImg = document.createElement('img');
@@ -107,7 +105,7 @@ class App {
     var abilityText = '';
     var pokemonCapitalize = data.name.charAt(0).toUpperCase() + data.name.slice(1);
 
-    this.divRight.classList.add('fortune-details', 'right');
+    divRight.classList.add('fortune-details', 'right');
     pokemonName.textContent = 'Lucky Pokemon: ' + pokemonCapitalize + '';
     imgDiv.classList.add('pokemon-image');
     pokemonImg.src = data.sprites.front_default;
@@ -121,14 +119,13 @@ class App {
     ability.textContent = 'Ability: ' + abilityText.substring(0, abilityText.length - 2);
 
     imgDiv.appendChild(pokemonImg);
-    this.divRight.appendChild(pokemonName);
-    this.divRight.appendChild(type);
-    this.divRight.appendChild(ability);
-    this.divRight.appendChild(imgDiv);
-    this.main.appendChild(this.divRight);
+    divRight.appendChild(pokemonName);
+    divRight.appendChild(type);
+    divRight.appendChild(ability);
+    divRight.appendChild(imgDiv);
 
+    this.main.append(divRight);
     this.resetBtn.addEventListener('click', this.resetFortune);
-
     this.smoothScroll('fortune-container', 1500);
   }
   smoothScroll(target, duration) {
@@ -139,19 +136,12 @@ class App {
     var distance = targetPosition - startPosition;
     var startTime = null;
 
-    if(window.scrollY > 300) {
-      this.resetBtn.classList.add('hidden');
-    }else {
-      this.resetBtn.classList.remove('hidden');
-    }
-
     function animation(currentTime) {
       if(startTime === null) startTime = currentTime;
       var timeElapsed = currentTime - startTime;
       var run = ease(timeElapsed, startPosition, distance, duration);
       window.scrollTo(0,run);
       if(timeElapsed < duration) requestAnimationFrame(animation);
-      console
     }
     function ease(t,b,c,d) {
       t /= d / 2;
