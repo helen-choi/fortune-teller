@@ -2,7 +2,9 @@ class App {
   constructor(input,contentElement) {
     this.input = input;
     this.zodiac = null;
-    this.pokemon = null;
+    this.divLeft = document.createElement('div');
+    this.divRight = document.createElement('div');
+    this.header = document.createElement('header');
     this.main = document.createElement('main');
     this.contentElement = contentElement;
     this.resetBtn = document.getElementById('top');
@@ -51,7 +53,6 @@ class App {
     if(!data) {
       this.getPokemon();
     }else {
-      this.pokemon = data;
       this.showPokemon(data);
     }
   }
@@ -59,12 +60,9 @@ class App {
     console.error(error);
   }
   showFortune(data) {
-    this.destroyFortune(this.contentElement);
-    this.header = document.createElement('header');
     var zodiacImage = document.createElement('img');
     var greeting = document.createElement('h2');
     var fortuneElement = document.createElement('p');
-    var divLeft = document.createElement('div');
     var luckyNumber = document.createElement('p');
     var luckyTime = document.createElement('p');
     var color = document.createElement('p');
@@ -74,26 +72,29 @@ class App {
     var zodiacCapitalize = this.zodiac.charAt(0).toUpperCase() + this.zodiac.slice(1);
     greeting.textContent = 'Hello ' + zodiacCapitalize + '!';
     fortuneElement.textContent = data.description;
-    divLeft.classList.add('fortune-details', 'left');
+    this.divLeft.classList.add('fortune-details', 'left');
     luckyNumber.textContent = 'Lucky Number: ' + data.lucky_number;
     luckyTime.textContent = 'Lucky Time: ' + data.lucky_time;
     color.textContent = 'Color: ' + data.color;
     compatibility.textContent = 'Compatibility: ' + data.compatibility;
 
+    this.header.innerHTML = "";
     this.header.appendChild(zodiacImage);
     this.header.appendChild(greeting);
     this.header.appendChild(fortuneElement);
-    divLeft.appendChild(luckyNumber);
-    divLeft.appendChild(luckyTime);
-    divLeft.appendChild(color);
-    divLeft.appendChild(compatibility);
+
+    this.divLeft.innerHTML="";
+    console.log(this.divLeft)
+    this.divLeft.appendChild(luckyNumber);
+    this.divLeft.appendChild(luckyTime);
+    this.divLeft.appendChild(color);
+    this.divLeft.appendChild(compatibility);
 
     this.contentElement.appendChild(this.header);
-    this.main.append(divLeft);
+    this.main.append(this.divLeft);
     this.contentElement.appendChild(this.main);
   }
   showPokemon(data) {
-    var divRight = document.createElement('div');
     var pokemonName = document.createElement('h3');
     var imgDiv = document.createElement('div');
     var pokemonImg = document.createElement('img');
@@ -103,7 +104,7 @@ class App {
     var abilityText = '';
     var pokemonCapitalize = data.name.charAt(0).toUpperCase() + data.name.slice(1);
 
-    divRight.classList.add('fortune-details', 'right');
+    this.divRight.classList.add('fortune-details', 'right');
     pokemonName.textContent = 'Lucky Pokemon: ' + pokemonCapitalize + '';
     imgDiv.classList.add('pokemon-image');
     pokemonImg.src = data.sprites.front_default;
@@ -117,12 +118,13 @@ class App {
     ability.textContent = 'Ability: ' + abilityText.substring(0, abilityText.length - 2);
 
     imgDiv.appendChild(pokemonImg);
-    divRight.appendChild(pokemonName);
-    divRight.appendChild(type);
-    divRight.appendChild(ability);
-    divRight.appendChild(imgDiv);
+    this.divRight.innerHTML = "";
+    this.divRight.appendChild(pokemonName);
+    this.divRight.appendChild(type);
+    this.divRight.appendChild(ability);
+    this.divRight.appendChild(imgDiv);
 
-    this.main.append(divRight);
+    this.main.append(this.divRight);
     this.resetBtn.addEventListener('click', this.resetFortune);
     this.smoothScroll('fortune-container', 1500);
   }
@@ -151,10 +153,5 @@ class App {
   }
   resetFortune() {
     this.smoothScroll('form', 1500);
-  }
-  destroyFortune(element) {
-    while(element.firstChild) {
-      element.removeChild(element.firstChild);
-    }
   }
 }
