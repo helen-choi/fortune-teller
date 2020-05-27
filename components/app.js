@@ -2,7 +2,6 @@ class App {
   constructor(input,contentElement) {
     this.input = input;
     this.zodiac = null;
-    // this.fortune = null;
     this.pokemon = null;
     this.main = document.createElement('main');
     this.contentElement = contentElement;
@@ -33,7 +32,6 @@ class App {
     this.zodiac = zodiac;
   }
   handleFortuneSuccess(data) {
-    // this.fortune = data;
     this.showFortune(data);
   }
   handleFortuneError(error) {
