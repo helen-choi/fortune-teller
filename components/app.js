@@ -84,7 +84,6 @@ class App {
     this.header.appendChild(fortuneElement);
 
     this.divLeft.innerHTML="";
-    console.log(this.divLeft)
     this.divLeft.appendChild(luckyNumber);
     this.divLeft.appendChild(luckyTime);
     this.divLeft.appendChild(color);
