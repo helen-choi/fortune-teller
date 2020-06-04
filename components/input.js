@@ -5,6 +5,7 @@ class Input {
     this.zodiac = null;
     this.getFortune = null;
     this.getPokemon = null;
+    this.message = document.getElementById('bdayMessage');
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.form.addEventListener('submit', this.handleSubmit);
@@ -46,7 +47,8 @@ class Input {
     }
 
     if(!this.zodiac) {
-      return;
+      this.message.innerHTML = "You must enter your birthday";
+      this.message.style.color = "black";
     }else {
       this.getFortune(this.zodiac);
       this.getPokemon();

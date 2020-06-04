@@ -1,8 +1,28 @@
 * {
-  font-family: 'Open Sans', sans-serif;
+font-family: 'Montserrat', sans-serif;
 }
 body {
   margin: 0;
+}
+.loading {
+  background-color: rgba(0,0,0,0.9);
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-content: center;
+}
+.loading img {
+  width: 20%;
+}
+.loading h2 {
+  color:white;
+  flex-basis: 100%;
+  margin-top: 30px;
 }
 #form {
   height:100vh;
@@ -13,7 +33,7 @@ body {
   margin: 0 auto;
 }
 h1 {
-  font-size: 7em;
+  font-size: 8em;
   color:white;
   font-weight: 700;
   text-align: center;
@@ -21,6 +41,8 @@ h1 {
   padding-top: 100px;
   padding-bottom: 60px;
   text-shadow: 0 0 10px #333333;
+  font-family: 'Sacramento', cursive;
+
 }
 form {
   text-align: center;
@@ -140,14 +162,9 @@ h2 {
 .hidden {
   display: none;
 }
-@media only screen and (max-width:1224px) {
-  h1 {
-  font-size: 6em;
-  }
-}
 @media only screen and (max-width:1024px) {
   h1 {
-    font-size: 5em;
+    font-size: 6em;
   }
   #fortune-container {
     width: 80%;
@@ -163,7 +180,7 @@ h2 {
     align-items: center;
   }
   h1 {
-    font-size: 60px;
+    font-size: 70px;
     padding-top: 0;
     padding-bottom: 30px;
   }
@@ -190,7 +207,7 @@ h2 {
 }
 @media only screen and (max-width:414px) {
   h1 {
-    font-size: 40px;
+    font-size: 50px;
     padding-bottom: 40px;
   }
   form input {
