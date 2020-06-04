@@ -48,7 +48,7 @@ class Input {
 
     if(!this.zodiac) {
       this.message.innerHTML = "You must enter your birthday";
-      this.message.style.color = "red";
+      this.message.style.color = "black";
     }else {
       this.getFortune(this.zodiac);
       this.getPokemon();
