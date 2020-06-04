@@ -11,13 +11,15 @@ body {
   right:0;
   top:0;
   bottom:0;
-  display: flex;
+  text-align: center;
+  /* display: flex;
   flex-wrap:wrap;
   justify-content: center;
-  align-content: center;
+  align-content: center; */
 }
 .loading img {
   width: 20%;
+  margin-top:33vh;
 }
 .loading h2 {
   color:white;
