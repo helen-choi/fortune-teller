@@ -8,6 +8,7 @@ class App {
     this.main = document.createElement('main');
     this.contentElement = contentElement;
     this.resetBtn = document.getElementById('top');
+    this.loading = document.getElementById('loading');
 
     this.handleFortuneSuccess = this.handleFortuneSuccess.bind(this);
     this.handleFortuneError = this.handleFortuneError.bind(this);
@@ -18,6 +19,7 @@ class App {
     this.showPokemon = this.showPokemon.bind(this);
     this.smoothScroll = this.smoothScroll.bind(this);
     this.resetFortune = this.resetFortune.bind(this);
+    this.showLoading = this.showLoading.bind(this);
   }
   start() {
     this.fortune = document.querySelector('.fortune');
@@ -58,6 +60,13 @@ class App {
   }
   getPokemonError(error) {
     console.error(error);
+  }
+  showLoading() {
+    this.loading.classList.remove('hidden');
+    setTimeout(() => {
+      this.loading.classList.add('hidden');
+      this.smoothScroll('fortune-container', 1500);
+    },2000)
   }
   showFortune(data) {
     var zodiacImage = document.createElement('img');
@@ -125,7 +134,7 @@ class App {
 
     this.main.append(this.divRight);
     this.resetBtn.addEventListener('click', this.resetFortune);
-    this.smoothScroll('fortune-container', 1500);
+    this.showLoading();
   }
   smoothScroll(target, duration) {
     this.fortune.classList.remove('hidden');

@@ -4,6 +4,20 @@ font-family: 'Montserrat', sans-serif;
 body {
   margin: 0;
 }
+#loading {
+  background-color: rgba(0,0,0,0.8);
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+}
+#loading img {
+  width: 50%;
+}
+#loading h2 {
+  color:white;
+}
 #form {
   height:100vh;
   background: url('./images/bg.jpg') center;
