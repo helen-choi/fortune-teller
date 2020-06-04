@@ -9,6 +9,7 @@ class App {
     this.contentElement = contentElement;
     this.resetBtn = document.getElementById('top');
     this.loading = document.getElementById('loading');
+    this.message = document.getElementById('bdayMessage');
 
     this.handleFortuneSuccess = this.handleFortuneSuccess.bind(this);
     this.handleFortuneError = this.handleFortuneError.bind(this);
@@ -161,5 +162,7 @@ class App {
   }
   resetFortune() {
     this.smoothScroll('form', 1500);
+    this.message.innerHTML = "Please enter your birthday";
+    this.message.style.color = "white";
   }
 }
