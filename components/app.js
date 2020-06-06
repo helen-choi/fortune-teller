@@ -28,6 +28,7 @@ class App {
     this.input.onSubmit(this.getFortune,this.getPokemon);
   }
   getFortune(zodiac) {
+    this.showLoading();
     $.ajax({
       type: 'POST',
       url: 'https://aztro.sameerkumar.website?sign=' + zodiac +'&day=today',
@@ -135,7 +136,6 @@ class App {
 
     this.main.append(this.divRight);
     this.resetBtn.addEventListener('click', this.resetFortune);
-    this.showLoading();
   }
   smoothScroll(target, duration) {
     this.fortune.classList.remove('hidden');
