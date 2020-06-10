@@ -141,7 +141,11 @@ class App {
     var errorContainer = document.createElement('div');
     var errorImageContainer = document.createElement('div');
     var errorImage = document.createElement('img');
+    var errorTextContainer = document.createElement('div');
+    var errorHeader = document.createElement('h1');
+    var errorMessage = document.createElement('p');
 
+    errorImage.src = './images/404-error.png'
   }
 
   smoothScroll(target, duration) {
