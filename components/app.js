@@ -2,6 +2,7 @@ class App {
   constructor(input,contentElement) {
     this.input = input;
     this.zodiac = null;
+    this.error = false;
     this.divLeft = document.createElement('div');
     this.divRight = document.createElement('div');
     this.header = document.createElement('header');
@@ -21,6 +22,7 @@ class App {
     this.smoothScroll = this.smoothScroll.bind(this);
     this.resetFortune = this.resetFortune.bind(this);
     this.showLoading = this.showLoading.bind(this);
+    this.showError = this.showError.bind(this);
   }
   start() {
     this.fortune = document.querySelector('.fortune');
@@ -40,8 +42,11 @@ class App {
   handleFortuneSuccess(data) {
     this.showFortune(data);
   }
-  handleFortuneError(error) {
-    console.error(error);
+  handleFortuneError() {
+     if(!this.error) {
+       this.showError();
+     }
+    this.error = true;
   }
   getPokemon() {
     var randomNum = Math.floor(Math.random() * 151) + 1;
@@ -60,8 +65,11 @@ class App {
       this.showPokemon(data);
     }
   }
-  getPokemonError(error) {
-    console.error(error);
+  getPokemonError() {
+    if (!this.error) {
+      this.showError();
+    }
+    this.error = true;
   }
   showLoading() {
     this.loading.classList.remove('hidden');
@@ -142,10 +150,14 @@ class App {
     var errorImageContainer = document.createElement('div');
     var errorImage = document.createElement('img');
     var errorTextContainer = document.createElement('div');
-    var errorHeader = document.createElement('h1');
+    var errorHeader = document.createElement('h2');
     var errorMessage = document.createElement('p');
 
+    errorContainer.classList.add('error-container')
+    errorTextContainer.classList.add('error-text')
     errorImage.src = './images/404-error.png'
+    errorHeader.textContent = 'Something went wrong!'
+    errorMessage.innerHTML = "Sorry, we were not able to send your request.<br>Please check your internet connection and try again."
 
     errorImageContainer.appendChild(errorImage);
     errorTextContainer.appendChild(errorHeader);
