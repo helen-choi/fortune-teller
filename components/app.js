@@ -147,11 +147,13 @@ class App {
     var startTime = null;
 
     window.onscroll = () => {
-      console.log(pageYOffset)
+      if (pageYOffset <= 300) {
+        this.resetBtn.classList.add('hidden');
+      } else {
+        this.resetBtn.classList.remove('hidden');
+      }
 
     }
-
-
 
     function animation(currentTime) {
       if(startTime === null) startTime = currentTime;
