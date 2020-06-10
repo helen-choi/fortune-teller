@@ -146,6 +146,13 @@ class App {
     var errorMessage = document.createElement('p');
 
     errorImage.src = './images/404-error.png'
+
+    errorImageContainer.appendChild(errorImage);
+    errorTextContainer.appendChild(errorHeader);
+    errorTextContainer.appendChild(errorMessage);
+    errorContainer.appendChild(errorImageContainer);
+    errorContainer.appendChild(errorTextContainer);
+    this.contentElement.appendChild(errorContainer);
   }
 
   smoothScroll(target, duration) {
