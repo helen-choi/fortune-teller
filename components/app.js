@@ -137,6 +137,7 @@ class App {
     this.main.append(this.divRight);
     this.resetBtn.addEventListener('click', this.resetFortune);
   }
+
   smoothScroll(target, duration) {
     this.fortune.classList.remove('hidden');
     var targetEl = document.getElementById(target);
@@ -144,6 +145,15 @@ class App {
     var startPosition = window.scrollY;
     var distance = targetPosition - startPosition;
     var startTime = null;
+
+    window.onscroll = () => {
+      if (pageYOffset <= 300) {
+        this.resetBtn.classList.add('hidden');
+      } else {
+        this.resetBtn.classList.remove('hidden');
+      }
+
+    }
 
     function animation(currentTime) {
       if(startTime === null) startTime = currentTime;
