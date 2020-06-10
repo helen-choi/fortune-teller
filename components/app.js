@@ -137,6 +137,9 @@ class App {
     this.main.append(this.divRight);
     this.resetBtn.addEventListener('click', this.resetFortune);
   }
+  showError() {
+
+  }
 
   smoothScroll(target, duration) {
     this.fortune.classList.remove('hidden');
@@ -152,7 +155,6 @@ class App {
       } else {
         this.resetBtn.classList.remove('hidden');
       }
-
     }
 
     function animation(currentTime) {
