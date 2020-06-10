@@ -138,6 +138,9 @@ class App {
     this.resetBtn.addEventListener('click', this.resetFortune);
   }
   showError() {
+    var errorContainer = document.createElement('div');
+    var errorImageContainer = document.createElement('div');
+    var errorImage = document.createElement('img');
 
   }
 
