@@ -31,4 +31,4 @@ Try the application live at https://fortuneteller.helen-choi.com/
 ```
 git clone https://github.com/helen-choi/fortune-teller.git
 ```
-2. Open the file through a code editor and open default browser from index.html file.
+2. Open the file through a code editor and open default browser from ```index.html``` file.
